@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Activity</title>
+
+</head>
+<body data-mode="light"></body>
+    <div class="flex-container">
+        <h1>Registration Form</h1>
+        <form>
+            First name: <br> <input type="text" class="textfields" name="firstname"><br>
+            Last name: <br> <input type="text" class="textfields" name="lastname"><br>
+            Nickname: <br> <input type="text" class="textfields" name="nickname"><br>
+            Email: <br> <input type="email" class="textfields" name="email"><br>
+            Password: <br> <input type="password" class="textfields" name="password"><br>
+            Date of Birth: <br> <input type="date" class="textfields" name="dateOfBirth"><br>
+            Gender: <br>
+            <div id="radiobox">
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other<br>
+            </div>
+            Mobile: <br> <input type="text" class="textfields" name="mobile"><br>
+            Address: <br> <textarea class="textfields" name="address"></textarea><br>
+            <button type="submit" style="background-color: green;">Submit</button>
+            <button type="reset" style="background-color: red;">Reset</button>
+        </form>
+    </div>
+    
+
+    <link rel="stylesheet" href="index.css" />
+</body>
+</html>
