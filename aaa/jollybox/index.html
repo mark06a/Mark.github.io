@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JollyBox Menu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .menu-container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .menu-header {
+      background-color: #004a99;
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+    }
+    
+    .menu-header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    
+    .menu-header p {
+      margin: 5px 0 0;
+      font-size: 1em;
+    }
+    
+    .menu-section {
+      text-align: center; /* Center-align the section titles */
+      padding: 20px;
+      border-bottom: 1px solid #eaeaea;
+    }
+    
+    .menu-section:last-child {
+      border-bottom: none;
+    }
+    
+    .menu-section h2 {
+      color: #333;
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+    
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .menu-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .price {
+      background-color: #008000;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 10px;
+      /* Remove text-align: center; to keep prices on the left */
+    }
+    
+    .buy-button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .buy-button:hover {
+      background-color: #367c39;
+    }
+    
+    .calculate-button {
+      width: calc(100% - 40px);
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 20px;
+    }
+    
+    .calculate-button:hover {
+      background-color: #c1352a;
+    }
+    
+    #total {
+      text-align: right;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background-color: #f7f7f7;
+    }
+    
+    #cart-items {
+      margin: 0;
+      padding: 0 20px 20px;
+      list-style-type: none;
+    }
+    
+    #cart-items li {
+      border-bottom: 1px solid #eaeaea;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-header">
+    <h1>JOLLYBOX MENU</h1>
+    <p>For easy pick-up and delivery</p>
+  </div>
+  
+  <!-- Best-seller for sharing Section -->
+  <div class="menu-section">
+    <h2>Best seller</h2>
+    <!-- Best seller Items -->
+
+    <div class="menu-item">
+      <span>Fried Lumpia</span>
+      <span< </span>
+      <span class="price" data-price="200">₱200.00</span>
+      <button class="buy-button" onclick="addToCart('Fried Lumpia', 200)">Buy</button>
+    </div>
+    <div class="menu-item">
+      <span>Pork sisig</span>
+       <span< </span>
+      <span class="price" data-price="200">₱200.00</span>
+      <button class="buy-button" onclick="addToCart('Pork sisig', 200)">Buy</button>
+    </div>
+    <div class="menu-item">
+      <span>Fried chicken</span>
+       <span< </span>
+      <span class="price" data-price="400">₱400.00</span>
+      <button class="buy-button" onclick="addToCart('Fried chicken', 400)">Buy</button>
+    </div>
+    <div class="menu-item">
+      <span>Bagnet Bicol Express</span>
+      <span< </span>
+      <span class="price" data-price="350">₱350.00</span>
+      <button class="buy-button" onclick="addToCart('Bagnet Bicol Express', 350)">Buy</button>
+    </div>
+  </div>
+
+  <!-- Best-seller for sharing Section -->
+  <div class="menu-section">
+    <h2>Solo meal</h2>
+    <!-- Solo meal -->
+    <div class="menu-item">
+      <span>1 Fried chicken/rice</span>
+      <span< </span>
+      <span class="price" data-price="150">₱150.00</span>
+      <button class="buy-button" onclick="addToCart('1 Fried chicken/rice', 150)">Buy</button>
+    </div>
+    <div class="menu-item">
+      <span>Tuna sisig/rice</span>
+      <span< </span>
+      <span class="price" data-price="170">₱170.00</span>
+      <button class="buy-button" onclick="addToCart('Tuna sisig/rice', 170)">Buy</button>
+    </div>
+  </div>
+
+<!-- Best-seller for sharing Section -->
+  <div class="menu-section">
+    <h2>Rice</h2>
+    <!-- Rice -->
+    <div class="menu-item">
+      <span>Adobo rice</span>
+      <span< </span>
+      <span class="price" data-price="30">₱30.00</span>
+      <button class="buy-button" onclick="addToCart('Adobo rice',30)">Buy</button>
+    </div>
+ <div class="menu-item">
+      <span>Bagoong rice</span>
+      <span< </span>
+      <span class="price" data-price="30">₱30.00</span>
+      <button class="buy-button" onclick="addToCart('Bagoong rice',30)">Buy</button>
+    </div>
+ <div class="menu-item">
+      <span>Plain rice</span>
+      <span< </span>
+      <span class="price" data-price="30">₱20.00</span>
+      <button class="buy-button" onclick="addToCart('Plain rice',20)">Buy</button>
+    </div>
+<h2>Drinks</h2>
+    <!-- drink -->
+    <div class="menu-item">
+      <span>Ice tea</span>
+      <span< </span>
+      <span class="price" data-price="25">₱25.00</span>
+      <button class="buy-button" onclick="addToCart('Ice tea',25)">Buy</button>
+    </div>
+  <!-- Rice -->
+    <div class="menu-item">
+      <span>Lemonade</span>
+      <span< </span>
+      <span class="price" data-price="25">₱25.00</span>
+      <button class="buy-button" onclick="addToCart('Lemonade',25)">Buy</button>
+    </div>
+
+  <!-- Cart Items List -->
+  <ul id="cart-items"></ul>
+
+  <!-- Element to display the total -->
+  <div id="total">Total: ₱0.00</div>
+
+  <!-- Calculate Total button -->
+  <button class="calculate-button" onclick="calculateTotal()">Calculate Total</button>
+</div>
+
+<script>
+  var cart = {};
+
+  function addToCart(itemName, price) {
+    if (!cart[itemName]) {
+      cart[itemName] = { price: price, quantity: 0 };
+    }
+    cart[itemName].quantity += 1;
+    updateCartDisplay();
+  }
+
+  function updateCartDisplay() {
+    var cartItemsList = document.getElementById('cart-items');
+    cartItemsList.innerHTML = ''; // Clear the list
+    for (var itemName in cart) {
+      var item = cart[itemName];
+      var li = document.createElement('li');
+      li.textContent = itemName + ' - Quantity: ';
+
+      var minusButton = document.createElement('button');
+      minusButton.textContent = '-';
+      minusButton.onclick = function() { changeQuantity(itemName, -1); };
+
+      var quantitySpan = document.createElement('span');
+      quantitySpan.id = 'quantity-' + itemName;
+      quantitySpan.textContent = item.quantity;
+
+      var plusButton = document.createElement('button');
+      plusButton.textContent = '+';
+      plusButton.onclick = function() { changeQuantity(itemName, 1); };
+
+      li.appendChild(minusButton);
+      li.appendChild(quantitySpan);
+      li.appendChild(plusButton);
+      cartItemsList.appendChild(li);
+    }
+  }
+
+  function changeQuantity(itemName, delta) {
+    if (cart[itemName]) {
+      cart[itemName].quantity += delta;
+      if (cart[itemName].quantity <= 0) {
+        delete cart[itemName];
+      }
+      updateCartDisplay();
+    }
+  }
+
+  function calculateTotal() {
+    var total = 0;
+    for (var itemName in cart) {
+      var item = cart[itemName];
+      total += item.price * item.quantity;
+      document.getElementById('quantity-' + itemName).textContent = item.quantity;
+    }
+    document.getElementById('total').textContent = 'Total: ₱' + total.toFixed(2);
+  }
+</script>
+</body>
+</html>
